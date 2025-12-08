@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <title>Simulador de Notas</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <a href="index.html" class="back-link">← Voltar ao Menu</a>
+  
+  <h1>📊 Simulador de Notas</h1>
+  <p>
+    <strong>Regras:</strong><br>
+    N1 = P1 (70%) + AT1 (30%)<br>
+    N2 = P2 (70%) + AT2 (30%)<br>
+    MF = (N1 + N2) / 2<br>
+    P3 = Prova de Recuperação (substitui a MF se ≥ 6,0)<br>
+    MF Final = (MF + P3) / 2
+  </p>
+
+  <div class="grid">
+    <div class="card">
+      <h3>Notas do 1º Bimestre</h3>
+      <label for="p1">P1 - Prova Individual (0 a 10)</label>
+      <input type="number" id="p1" min="0" max="10" step="0.1" />
+
+      <label for="at1">AT1 - Atividades do Bimestre (0 a 10)</label>
+      <input type="number" id="at1" min="0" max="10" step="0.1" />
+
+      <div class="resultado">
+        N1 (1º Bimestre): <span id="n1">-</span>
+      </div>
+    </div>
+
+    <div class="card">
+      <h3>Notas do 2º Bimestre</h3>
+      <label for="p2">P2 - Prova Individual (0 a 10)</label>
+      <input type="number" id="p2" min="0" max="10" step="0.1" />
+
+      <label for="at2">AT2 - Atividades do Bimestre (0 a 10)</label>
+      <input type="number" id="at2" min="0" max="10" step="0.1" />
+
+      <div class="resultado">
+        N2 (2º Bimestre): <span id="n2">-</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="card" style="margin-top: 20px;">
+    <h3>Média Final Semestral</h3>
+    <div class="resultado">
+      MF: <span id="mf">-</span>
+    </div>
+    <div class="resultado">
+      Conceito: <span id="conceito">-</span>
+    </div>
+
+    <div id="p3-section" style="display: none; margin-top: 20px; padding-top: 20px; border-top: 2px solid #e0e0e0;">
+      <h3 style="color: #e67e22; margin-top: 0;">Prova P3 - Recuperação</h3>
+      <p style="background: #fff3e0; color: #d84315; padding: 10px; border-radius: 8px; font-size: 0.9rem; margin-bottom: 15px;">
+        ⚠️ Você está na margem de exame. Complete a prova P3 para tentar melhorar sua nota.
+      </p>
+      
+      <label for="p3">P3 - Prova de Recuperação (0 a 10)</label>
+      <input type="number" id="p3" min="0" max="10" step="0.1" />
+
+      <div class="resultado">
+        MF Final (com P3): <span id="mf-final">-</span>
+      </div>
+      <div class="resultado">
+        Conceito Final: <span id="conceito-final">-</span>
+      </div>
+    </div>
+
+    <div class="observacao">
+      <strong>Faixas:</strong><br>
+      6,0 a 10,0 → <span class="aprovado">APROVADO</span><br>
+      2,0 a 5,9 → <span class="exame">EXAME</span><br>
+      0,0 a 1,9 → <span class="reprovado">REPROVADO</span>
+    </div>
+  </div>
+
+  <script src="js/script.js"></script>
+</body>
+</html>

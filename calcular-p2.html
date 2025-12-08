@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <title>Calculadora - Quanto preciso na P2?</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <a href="index.html" class="back-link">← Voltar ao Menu</a>
+  
+  <h1>📝 Quanto preciso tirar na P2?</h1>
+  <p>
+    Digite suas notas do 1º bimestre para descobrir qual nota você precisa tirar na P2 para não ficar em exame.
+  </p>
+
+  <div class="grid">
+    <div class="card">
+      <h3>Notas do 1º Bimestre</h3>
+      <label for="p1">P1 - Prova Individual (0 a 10)</label>
+      <input type="number" id="p1" min="0" max="10" step="0.1" />
+
+      <label for="at1">AT1 - Atividades do Bimestre (0 a 10)</label>
+      <input type="number" id="at1" min="0" max="10" step="0.1" />
+
+      <div class="resultado">
+        N1 (1º Bimestre): <span id="n1">-</span>
+      </div>
+    </div>
+
+    <div class="card">
+      <h3>Notas do 2º Bimestre</h3>
+      <label for="at2">AT2 - Atividades do Bimestre (0 a 10)</label>
+      <input type="number" id="at2" min="0" max="10" step="0.1" />
+
+      <div class="resultado">
+        P2 Mínima necessária: <span id="p2-minima">-</span>
+      </div>
+      <div class="resultado" style="background: #fff3e0;">
+        Sua situação: <span id="situacao">-</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="card" style="margin-top: 20px;">
+    <h3>Explicação</h3>
+    <div class="observacao">
+      <strong>Como funciona:</strong><br>
+      N1 = P1 (70%) + AT1 (30%)<br>
+      N2 = P2 (70%) + AT2 (30%)<br>
+      MF = (N1 + N2) / 2<br><br>
+      
+      Para <span class="aprovado">PASSAR</span> você precisa de MF ≥ 6,0<br>
+      Para estar em <span class="exame">EXAME</span> você precisa de 2,0 ≤ MF &lt; 6,0
+    </div>
+  </div>
+
+  <script src="js/calcular-p2.js"></script>
+</body>
+</html>

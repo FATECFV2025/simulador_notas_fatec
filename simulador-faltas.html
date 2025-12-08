@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <title>Simulador de Faltas</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <a href="index.html" class="back-link">← Voltar ao Menu</a>
+  
+  <h1>📅 Simulador de Faltas</h1>
+  <p>
+    Verifique quantas aulas você pode faltar mantendo a frequência mínima de <strong>75%</strong>.
+  </p>
+
+  <div class="grid">
+    <div class="card">
+      <h3>Informações da Disciplina</h3>
+      
+      <label for="total-aulas">Total de Aulas Semestrais</label>
+      <select id="total-aulas">
+        <option value="">-- Selecione --</option>
+        <option value="20">20 aulas</option>
+        <option value="40">40 aulas</option>
+      </select>
+
+      <label for="horas-aula">Horas por Aula</label>
+      <select id="horas-aula">
+        <option value="">-- Selecione --</option>
+        <option value="2">2 horas</option>
+        <option value="4">4 horas</option>
+      </select>
+
+      <div class="resultado">
+        Total de Horas: <span id="total-horas">-</span>
+      </div>
+
+      <div class="resultado">
+        Horas Mínimas (75%): <span id="horas-minimas">-</span>
+      </div>
+    </div>
+
+    <div class="card">
+      <h3>Sua Frequência</h3>
+      
+      <label for="aulas-frequentadas">Aulas Frequentadas</label>
+      <input type="number" id="aulas-frequentadas" min="0" max="40" step="1" />
+
+      <div class="resultado">
+        Presença: <span id="presenca">-</span>%
+      </div>
+
+      <div class="resultado" id="resultado-frequencia">
+        Status: <span id="status-frequencia">-</span>
+      </div>
+
+      <div class="resultado">
+        Faltas Permitidas: <span id="faltas-permitidas">-</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="card" style="margin-top: 20px;">
+    <h3>Detalhes</h3>
+    <div class="observacao">
+      <strong>Frequência Mínima:</strong> 75%<br>
+      <strong>Fórmula:</strong> (Aulas Frequentadas / Total de Aulas) × 100 ≥ 75%<br><br>
+      
+      <strong>Faltas Permitidas:</strong><br>
+      = Total de Aulas - (Total de Aulas × 0,75)<br><br>
+      
+      <strong>Exemplo:</strong><br>
+      20 aulas semestrais<br>
+      Mínimo: 20 × 0,75 = 15 aulas<br>
+      Faltas permitidas: 20 - 15 = 5 aulas
+    </div>
+  </div>
+
+  <script src="js/simulador-faltas.js"></script>
+</body>
+</html>
