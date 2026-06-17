@@ -42,16 +42,13 @@ function calcular() {
       mfFinalSpan.textContent = mfFinal.toFixed(1);
 
       // Se P3 < 6, reprovado automaticamente
-      if (p3 < 6.0) {
+      if (mfFinal  < 6.0) {
         resultadoSpan.className = 'reprovado';
         resultadoSpan.textContent = '❌ Reprovado! P3 < 6.0';
       } else if (mfFinal >= 6.0) {
         resultadoSpan.className = 'aprovado';
         resultadoSpan.textContent = '✅ Aprovado!';
-      } else {
-        resultadoSpan.className = 'exame';
-        resultadoSpan.textContent = '⚠️ Ainda em exame. Aumente a nota em P3.';
-      }
+      } 
     } else {
       mfFinalSpan.textContent = '-';
       resultadoSpan.textContent = '';

@@ -24,29 +24,27 @@ function calcular() {
     n1Span.textContent = n1.toFixed(1);
 
     if (at2 !== null) {
-      // Precisamos calcular qual P2 é necessário para MF = 6.0
-      // MF = (N1 + N2) / 2 = 6.0
-      // N1 + N2 = 12.0
-      // N2 = 12.0 - N1
-      // N2 = P2 * 0.7 + AT2 * 0.3 = 12.0 - N1
-      // P2 * 0.7 = 12.0 - N1 - AT2 * 0.3
-      // P2 = (12.0 - N1 - AT2 * 0.3) / 0.7
+      const n2ParaAprovacao = 12.0 - n1;
+      const p2ParaAprovacao = (n2ParaAprovacao - at2 * 0.3) / 0.7;
+      const n2ParaExame = 4.0 - n1;
+      const p2ParaExame = (n2ParaExame - at2 * 0.3) / 0.7;
 
-      const n2Necessaria = 12.0 - n1;
-      const p2Necessaria = (n2Necessaria - at2 * 0.3) / 0.7;
-
-      if (p2Necessaria < 0) {
+      if (p2ParaAprovacao < 0) {
         p2MinimaSpan.textContent = '0.0';
         situacaoSpan.className = 'aprovado';
         situacaoSpan.textContent = '✅ Aprovado! Qualquer nota em P2 já aprova você!';
-      } else if (p2Necessaria > 10) {
+      } else if (p2ParaAprovacao <= 10) {
+        p2MinimaSpan.textContent = p2ParaAprovacao.toFixed(1);
+        situacaoSpan.className = 'exame';
+        situacaoSpan.textContent = `⚠️ Você precisa de pelo menos ${p2ParaAprovacao.toFixed(1)} em P2 para passar direto.`;
+      } else if (p2ParaExame <= 10) {
+        p2MinimaSpan.textContent = p2ParaExame <= 0 ? '0.0' : p2ParaExame.toFixed(1);
+        situacaoSpan.className = 'exame';
+        situacaoSpan.textContent = `⚠️ Não dá para passar direto na P2. Para ir à P3, você precisa de pelo menos ${p2ParaExame <= 0 ? '0.0' : p2ParaExame.toFixed(1)} em P2.`;
+      } else {
         p2MinimaSpan.textContent = 'Impossível';
         situacaoSpan.className = 'reprovado';
-        situacaoSpan.textContent = '❌ Impossível passar com essas notas em P1 e AT2.';
-      } else {
-        p2MinimaSpan.textContent = p2Necessaria.toFixed(1);
-        situacaoSpan.className = 'exame';
-        situacaoSpan.textContent = `⚠️ Você precisa de pelo menos ${p2Necessaria.toFixed(1)} em P2`;
+        situacaoSpan.textContent = '❌ Mesmo com 10,0 na P2 você não alcança média para P3.';
       }
     } else {
       p2MinimaSpan.textContent = '-';
